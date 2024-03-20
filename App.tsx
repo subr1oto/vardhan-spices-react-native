@@ -1,12 +1,13 @@
 import { createStackNavigator } from "@react-navigation/stack";
 import { useFonts } from "expo-font";
 import { useCallback } from "react";
-// import MainContainer from "./navigation/MainContainer";
 import { StatusBar, StyleSheet, Text, View } from "react-native";
-// import exercises from "./src/assets/data/exercises.json";
 import * as SplashScreen from "expo-splash-screen";
+import { NavigationContainer } from "@react-navigation/native";
+import BottomTabNavigation from "./navigation/BottomTabNavigation";
 
 const Stack = createStackNavigator();
+
 export default function App() {
   // const exercise = exercises[0];
   const [fontsLoaded] = useFonts({
@@ -38,10 +39,16 @@ export default function App() {
         </Stack.Navigator>
       </NavigationContainer> */}
       {/* <MainContainer /> */}
-      <View style={styles.container}>
-        <Text style={styles.textStyle}> to start wowrking on your app!</Text>
-        <StatusBar style="auto" />
-      </View>
+
+      <NavigationContainer>
+        <Stack.Navigator>
+          <Stack.Screen
+            name="Bottom Navigation"
+            component={BottomTabNavigation}
+            options={{ headerShown: false }}
+          />
+        </Stack.Navigator>
+      </NavigationContainer>
     </>
   );
 }
