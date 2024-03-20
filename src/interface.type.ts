@@ -7,3 +7,7 @@ export interface SpiceProps {
     price: string;
     about: string
 }
+
+export interface NavigationProps {
+    navigation: { navigate: (data: String) => void };
+}
